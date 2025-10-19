@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.teya.tiny_ledger.TinyLedgerApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-10-19T18:06:16.387Z" hostname="Alastairs-iMac.local" time="0.628">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.teya.tiny_ledger.TinyLedgerApplicationTests" time="0.628"/>
+  <system-out><![CDATA[19:06:15.125 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.teya.tiny_ledger.TinyLedgerApplicationTests]: TinyLedgerApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:06:15.215 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.teya.tiny_ledger.TinyLedgerApplication for test class com.teya.tiny_ledger.TinyLedgerApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.6)
+
+2025-10-19T19:06:15.558+01:00  INFO 61509 --- [tiny-ledger] [    Test worker] c.t.t.TinyLedgerApplicationTests         : Starting TinyLedgerApplicationTests using Java 21.0.8 with PID 61509 (started by alastair in /Users/alastair/IdeaProjects/teya-tiny-ledger)
+2025-10-19T19:06:15.560+01:00  INFO 61509 --- [tiny-ledger] [    Test worker] c.t.t.TinyLedgerApplicationTests         : No active profile set, falling back to 1 default profile: "default"
+=================== ACCOUNTS ===================
+AccountId 2c37fae3-543c-44d1-bfb1-be7a448c145a Account Details: Account[id=2c37fae3-543c-44d1-bfb1-be7a448c145a, transactionList=[Transaction[id=d37886d0-0e86-460f-8e0c-c025eac36fdd, type=DEPOSIT, amount=250.99, description=Transaction1], Transaction[id=def7d638-05a8-4f92-ad0b-942666f93107, type=WITHDRAWAL, amount=100.99, description=Transaction2]]]
+AccountId 40f506a9-b6cc-4b46-b39d-2eb640f80c3f Account Details: Account[id=40f506a9-b6cc-4b46-b39d-2eb640f80c3f, transactionList=[Transaction[id=7eac16e6-2a7b-491d-b272-bfc68e2e1575, type=DEPOSIT, amount=25.99, description=Transaction1], Transaction[id=24c69a3b-030d-4c42-a8a5-b577c14c9b4d, type=WITHDRAWAL, amount=10.99, description=Transaction2]]]
+================================================
+2025-10-19T19:06:16.377+01:00  INFO 61509 --- [tiny-ledger] [    Test worker] c.t.t.TinyLedgerApplicationTests         : Started TinyLedgerApplicationTests in 1.031 seconds (process running for 1.981)
+]]></system-out>
+  <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/Users/alastair/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.17.7/fbf3d6d649ed37fc9e9c59480a05be0a26e3c2da/byte-buddy-agent-1.17.7.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - TinyLedgerApplicationTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>TinyLedgerApplicationTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.teya.tiny_ledger.html">com.teya.tiny_ledger</a> &gt; TinyLedgerApplicationTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.628s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a href="#">Tests</a>
+</li>
+<li>
+<a href="#">Standard output</a>
+</li>
+<li>
+<a href="#">Standard error</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">contextLoads()</td>
+<td class="success">0.628s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>19:06:15.125 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.teya.tiny_ledger.TinyLedgerApplicationTests]: TinyLedgerApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:06:15.215 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.teya.tiny_ledger.TinyLedgerApplication for test class com.teya.tiny_ledger.TinyLedgerApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.6)
+
+2025-10-19T19:06:15.558+01:00  INFO 61509 --- [tiny-ledger] [    Test worker] c.t.t.TinyLedgerApplicationTests         : Starting TinyLedgerApplicationTests using Java 21.0.8 with PID 61509 (started by alastair in /Users/alastair/IdeaProjects/teya-tiny-ledger)
+2025-10-19T19:06:15.560+01:00  INFO 61509 --- [tiny-ledger] [    Test worker] c.t.t.TinyLedgerApplicationTests         : No active profile set, falling back to 1 default profile: &quot;default&quot;
+=================== ACCOUNTS ===================
+AccountId 2c37fae3-543c-44d1-bfb1-be7a448c145a Account Details: Account[id=2c37fae3-543c-44d1-bfb1-be7a448c145a, transactionList=[Transaction[id=d37886d0-0e86-460f-8e0c-c025eac36fdd, type=DEPOSIT, amount=250.99, description=Transaction1], Transaction[id=def7d638-05a8-4f92-ad0b-942666f93107, type=WITHDRAWAL, amount=100.99, description=Transaction2]]]
+AccountId 40f506a9-b6cc-4b46-b39d-2eb640f80c3f Account Details: Account[id=40f506a9-b6cc-4b46-b39d-2eb640f80c3f, transactionList=[Transaction[id=7eac16e6-2a7b-491d-b272-bfc68e2e1575, type=DEPOSIT, amount=25.99, description=Transaction1], Transaction[id=24c69a3b-030d-4c42-a8a5-b577c14c9b4d, type=WITHDRAWAL, amount=10.99, description=Transaction2]]]
+================================================
+2025-10-19T19:06:16.377+01:00  INFO 61509 --- [tiny-ledger] [    Test worker] c.t.t.TinyLedgerApplicationTests         : Started TinyLedgerApplicationTests in 1.031 seconds (process running for 1.981)
+</pre>
+</span>
+</div>
+<div class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/Users/alastair/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.17.7/fbf3d6d649ed37fc9e9c59480a05be0a26e3c2da/byte-buddy-agent-1.17.7.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 8.14.3</a> at 19 Oct 2025, 19:06:17</p>
+</div>
+</div>
+</body>
+</html>
