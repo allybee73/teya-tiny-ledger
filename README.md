@@ -27,7 +27,7 @@ Example request JSON body.
     "description": "Transaction1"
 }
 ```
-reference should be a valid client provided UUID, this reference would be used for idempotency checks. 
+Supports types of **DEPOSIT** and **WITHDRAWAL**. reference should be a valid client provided UUID, this reference would be used for idempotency checks. 
 This website will generate a valid UUID for demo purposes - https://www.uuidgenerator.net/
 
 When the new transaction has been added the new transaction will be returned as the JSON response body. If the account id 
@@ -42,6 +42,7 @@ Example response body JSON.
     "balance": 500.00
 }
 ```
+If the account id is not valid then a 404 response will be returned.
 
 ### View transaction history
 **GET** to **/api/v1/accounts/{account id}/transactions**
@@ -64,6 +65,8 @@ Example response body JSON
     ]
 }
 ```
+If the account id is not valid then a 404 response will be returned.
 
-### Assumptions. 
-I have not considered currency in this demo application, for the purposes of this test I have assumed we are only supporting GBP.
+### Assumptions/Notes on implementation. 
+* I have not considered currency in this demo application, for the purposes of this test I have assumed we are only supporting GBP.
+* Due to the basic nature of the mapping, I have not used any mapping framework such as MapStruct. 

@@ -1,6 +1,5 @@
 package com.teya.tiny_ledger.controller;
 
-import com.teya.tiny_ledger.dao.Transaction;
 import com.teya.tiny_ledger.dto.BalanceDto;
 import com.teya.tiny_ledger.dto.TransactionDto;
 import com.teya.tiny_ledger.dto.TransactionHistoryDto;
@@ -9,12 +8,11 @@ import com.teya.tiny_ledger.service.AccountNotFoundException;
 import com.teya.tiny_ledger.service.AccountService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -26,7 +24,6 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.when;
 
 @WebMvcTest(AccountController.class)
 class AccountControllerTest {
@@ -59,8 +56,8 @@ class AccountControllerTest {
 
         String expected = "{\"amount\":23.99}";
 
-        MvcResult result =mockMvc.perform(
-                        MockMvcRequestBuilders.get("/api/v1/accounts/"+ accountId.toString()+"/balance")
+        MvcResult result = mockMvc.perform(
+                        MockMvcRequestBuilders.get("/api/v1/accounts/" + accountId.toString() + "/balance")
                                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(MockMvcResultMatchers.status().isOk()).andReturn();
 
@@ -76,8 +73,8 @@ class AccountControllerTest {
         given(accountService.getBalance(accountId)).willThrow(new AccountNotFoundException());
         String expected = "{\"message\":\"Account not found\"}";
 
-        MvcResult result =mockMvc.perform(
-                        MockMvcRequestBuilders.get("/api/v1/accounts/"+ accountId.toString()+"/balance")
+        MvcResult result = mockMvc.perform(
+                        MockMvcRequestBuilders.get("/api/v1/accounts/" + accountId.toString() + "/balance")
                                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(MockMvcResultMatchers.status().isNotFound()).andReturn();
 
@@ -92,16 +89,16 @@ class AccountControllerTest {
         UUID reference = UUID.randomUUID();
         TransactionDto input = new TransactionDto(null, reference, TransactionType.DEPOSIT, BigDecimal.valueOf(25.56), "Test");
         String expected = """
-            {"reference":"%s","type":"DEPOSIT","amount":25.56,"description":"Test"}
-        """.strip().formatted(reference.toString());
+                    {"reference":"%s","type":"DEPOSIT","amount":25.56,"description":"Test"}
+                """.strip().formatted(reference.toString());
 
-        given(accountService.addTransaction(accountId,input)).willReturn(input);
+        given(accountService.addTransaction(accountId, input)).willReturn(input);
         MvcResult result = mockMvc.perform(
-                        MockMvcRequestBuilders.post("/api/v1/accounts/"+ accountId +"/transactions")
+                        MockMvcRequestBuilders.post("/api/v1/accounts/" + accountId + "/transactions")
                                 .content(
                                         """
-                                                {"reference":"%s","type":"DEPOSIT","amount":25.56,"description":"Test"}
-                                        """.formatted(reference.toString())
+                                                        {"reference":"%s","type":"DEPOSIT","amount":25.56,"description":"Test"}
+                                                """.formatted(reference.toString())
                                 )
                                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(MockMvcResultMatchers.status().isOk()).andReturn();
@@ -115,15 +112,15 @@ class AccountControllerTest {
     @Test
     void createTransactionErrorWhenAccountNotFound() throws Exception {
         TransactionDto input = new TransactionDto(null, reference, TransactionType.DEPOSIT, BigDecimal.valueOf(25.56), "Test");
-        given(accountService.addTransaction(accountId,input)).willThrow(new AccountNotFoundException());
+        given(accountService.addTransaction(accountId, input)).willThrow(new AccountNotFoundException());
         String expected = "{\"message\":\"Account not found\"}";
 
-        MvcResult result =mockMvc.perform(
-                        MockMvcRequestBuilders.post("/api/v1/accounts/"+ accountId +"/transactions")
+        MvcResult result = mockMvc.perform(
+                        MockMvcRequestBuilders.post("/api/v1/accounts/" + accountId + "/transactions")
                                 .content(
                                         """
-                                                {"reference":"%s","type":"DEPOSIT","amount":25.56,"description":"Test"}
-                                        """.formatted(reference.toString())
+                                                        {"reference":"%s","type":"DEPOSIT","amount":25.56,"description":"Test"}
+                                                """.formatted(reference.toString())
                                 )
                                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(MockMvcResultMatchers.status().isNotFound()).andReturn();
@@ -149,7 +146,7 @@ class AccountControllerTest {
                 """.strip().formatted(transactionId);
 
         MvcResult result = mockMvc.perform(
-                        MockMvcRequestBuilders.get("/api/v1/accounts/"+ accountId +"/transactions")
+                        MockMvcRequestBuilders.get("/api/v1/accounts/" + accountId + "/transactions")
                                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(MockMvcResultMatchers.status().isOk()).andReturn();
 
@@ -165,8 +162,8 @@ class AccountControllerTest {
         given(accountService.getTransactionHistory(accountId)).willThrow(new AccountNotFoundException());
         String expected = "{\"message\":\"Account not found\"}";
 
-        MvcResult result =mockMvc.perform(
-                        MockMvcRequestBuilders.get("/api/v1/accounts/"+ accountId +"/transactions")
+        MvcResult result = mockMvc.perform(
+                        MockMvcRequestBuilders.get("/api/v1/accounts/" + accountId + "/transactions")
                                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(MockMvcResultMatchers.status().isNotFound()).andReturn();
 

@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import java.util.*;
 
 @Component
-public class InMemoryAccountRepository implements AccountRepository{
+public class InMemoryAccountRepository implements AccountRepository {
 
     private static Map<UUID, Account> accountMap = new HashMap<>();
 
@@ -19,23 +19,23 @@ public class InMemoryAccountRepository implements AccountRepository{
         accountMap.put(
                 account1,
                 new Account(
-                    account1,
-                    List.of(new Transaction(UUID.randomUUID(), TransactionType.DEPOSIT, BigDecimal.valueOf(25.99), "Transaction1"),
-                            new Transaction(UUID.randomUUID(), TransactionType.WITHDRAWAL, BigDecimal.valueOf(10.99), "Transaction2")
-                    )
+                        account1,
+                        List.of(new Transaction(UUID.randomUUID(), TransactionType.DEPOSIT, BigDecimal.valueOf(25.99), "Transaction1"),
+                                new Transaction(UUID.randomUUID(), TransactionType.WITHDRAWAL, BigDecimal.valueOf(10.99), "Transaction2")
+                        )
                 )
         );
         accountMap.put(account2,
                 new Account(
-                    account2,
-                    List.of(new Transaction(UUID.randomUUID(), TransactionType.DEPOSIT, BigDecimal.valueOf(250.99), "Transaction1"),
-                            new Transaction(UUID.randomUUID(), TransactionType.WITHDRAWAL, BigDecimal.valueOf(100.99), "Transaction2")
-                    )
+                        account2,
+                        List.of(new Transaction(UUID.randomUUID(), TransactionType.DEPOSIT, BigDecimal.valueOf(250.99), "Transaction1"),
+                                new Transaction(UUID.randomUUID(), TransactionType.WITHDRAWAL, BigDecimal.valueOf(100.99), "Transaction2")
+                        )
                 )
         );
         System.out.println("=================== ACCOUNTS ===================");
 
-        for (Map.Entry<UUID, Account> entry: accountMap.entrySet()) {
+        for (Map.Entry<UUID, Account> entry : accountMap.entrySet()) {
             System.out.println("AccountId " + entry.getKey() + " Account Details: " + entry.getValue());
         }
 

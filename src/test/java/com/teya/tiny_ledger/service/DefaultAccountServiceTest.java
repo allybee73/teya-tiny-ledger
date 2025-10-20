@@ -7,7 +7,6 @@ import com.teya.tiny_ledger.dto.TransactionDto;
 import com.teya.tiny_ledger.dto.TransactionHistoryDto;
 import com.teya.tiny_ledger.dto.TransactionType;
 import com.teya.tiny_ledger.repository.AccountRepository;
-import com.teya.tiny_ledger.repository.InMemoryAccountRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -22,7 +21,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -48,6 +46,7 @@ class DefaultAccountServiceTest {
         transactionId = UUID.randomUUID();
         reference = UUID.randomUUID();
     }
+
     @Test
     void getTransactionHistory() {
         Transaction transaction = new Transaction(transactionId, TransactionType.WITHDRAWAL, BigDecimal.valueOf(10.99), "Transaction2");
@@ -75,7 +74,7 @@ class DefaultAccountServiceTest {
     @Test
     void addTransaction() {
         Transaction transaction = new Transaction(transactionId, TransactionType.WITHDRAWAL, BigDecimal.valueOf(10.99), "Transaction2");
-        TransactionDto input =new TransactionDto(transactionId, reference, TransactionType.WITHDRAWAL, BigDecimal.valueOf(10.99), "Transaction2");
+        TransactionDto input = new TransactionDto(transactionId, reference, TransactionType.WITHDRAWAL, BigDecimal.valueOf(10.99), "Transaction2");
         when(accountRepository.findById(accountId)).thenReturn(Optional.of(getTestAccount(accountId, transaction)));
         TransactionDto actual = accountService.addTransaction(accountId, input);
         verify(accountRepository).findById(accountId);
@@ -86,7 +85,7 @@ class DefaultAccountServiceTest {
 
     @Test
     void addTransactionThrowsAccountNotFoundException() {
-        TransactionDto input =new TransactionDto(transactionId, reference, TransactionType.WITHDRAWAL, BigDecimal.valueOf(10.99), "Transaction2");
+        TransactionDto input = new TransactionDto(transactionId, reference, TransactionType.WITHDRAWAL, BigDecimal.valueOf(10.99), "Transaction2");
         when(accountRepository.findById(accountId)).thenThrow(new AccountNotFoundException());
         assertThrows(AccountNotFoundException.class, () -> {
             accountService.addTransaction(accountId, input);
@@ -131,4 +130,4 @@ class DefaultAccountServiceTest {
                 )
         );
     }
- }
+}
